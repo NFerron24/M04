@@ -107,8 +107,101 @@ const superheroes = [
 ];
 
 // Array superheld namen
-const superNames = items.map((item) => {
-  return item.name;
+const superNames = superheroes.map((superhero) => {
+  return superhero.name;
 });
+console.log(superNames);
 // Array 'lichte' superhelden
-// Array namen + => 200 lbs
+const lightWeights = superheroes.filter((light) => light.weight < 190);
+
+console.log(lightWeights);
+// Array namen + = 200 lb
+const HeavyWeights = superheroes
+  .filter(function (heavy) {
+    return heavy.weight == 200;
+  })
+  .map(function (filteredHeroes) {
+    return filteredHeroes.name;
+  });
+
+console.log(HeavyWeights);
+// Array first appearance
+const superAppearance = superheroes.map((appear) => {
+  return appear.first_appearance;
+});
+console.log(superAppearance);
+
+// alle DC helden
+const DCHeroes = superheroes
+  .filter(function (DC) {
+    return DC.publisher === "DC Comics";
+  })
+  .map(function (DCNames) {
+    return DCNames.name;
+  });
+
+console.log(DCHeroes);
+//.. & alle Marvel helden
+const MarvelHeroes = superheroes
+  .filter(function (Marvel) {
+    return Marvel.publisher === "Marvel Comics";
+  })
+  .map(function (MarvelNames) {
+    return MarvelNames.name;
+  });
+
+console.log(MarvelHeroes);
+// Alle gewichten
+
+const superWeights = superheroes
+  .map((weights) => {
+    return weights.weight;
+  })
+  .filter((string) => {
+    return string != "unknown";
+  })
+  .map(function (filter) {
+    return parseFloat(filter);
+  })
+  .reduce(function (acc, sumWeight) {
+    return acc + sumWeight;
+  });
+console.log(superWeights);
+
+// alleen gewichten Marvel
+const MarvelWeights = superheroes
+  .filter(function (Marvel) {
+    return Marvel.publisher === "Marvel Comics";
+  })
+  .map((weights) => {
+    return weights.weight;
+  })
+  .filter((string) => {
+    return string != "unknown";
+  })
+  .map(function (filter) {
+    return parseFloat(filter);
+  })
+  .reduce(function (acc, sumWeight) {
+    return acc + sumWeight;
+  });
+console.log(MarvelWeights);
+
+// zwaarste held
+const HeaviestHero = superheroes
+  .map((weights) => {
+    return weights.weight;
+  })
+  .filter((string) => {
+    return string != "unknown";
+  })
+  .map(function (filter) {
+    return parseFloat(filter);
+  })
+  .reduce(function (acc, heaviest) {
+    if (heaviest > acc) {
+      acc = heaviest;
+    }
+    return acc;
+  });
+console.log(HeaviestHero);
