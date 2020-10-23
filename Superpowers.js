@@ -187,7 +187,7 @@ const MarvelWeights = superheroes
   });
 console.log(MarvelWeights);
 
-// zwaarste held
+// Bonus: vind de zwaarste held
 const HeaviestHero = superheroes
   .map((weights) => {
     return weights.weight;
